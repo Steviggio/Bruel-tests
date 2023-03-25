@@ -1,50 +1,83 @@
-// fetch('http://localhost:5678/api/works')
-//     .then(response => response.json())
-//     .then(worksElements => {
-//         console.log(worksElements)
-
-//         let recipes = [
-//             {
-//                 'title': 'Jus d\'orange',
-//                 'ingredients': ['orange']
-//             },
-//             {
-//                 'title': 'Tarte aux agrumes',
-//                 'ingredients': ['farine', 'beurre', 'sucre', 'oeuf', 'citron', 'orange', 'clémentine']
-//             },
-//             {
-//                 'title': 'Citronnade',
-//                 'ingredients': ['eau', 'citron']
-//             }
-//         ];
-
-//         console.log(recipes)
+fetch('http://localhost:5678/api/works')
+    .then(response => response.json())
+    .then(worksElements => {
+        console.log(worksElements)
 
 
-//         // let workCat1 = recipes.filter(function (work) {
-//         //     console.log(work)
-//         //     for (let i = 0; i < work.length; i++) {
-//         //         if (work.ingredients[i] === 'citron') {
-//         //             return work;
-//         //         }
-//         //     }
-//         // });
+        function generateWork(worksElements) {
+            for (let i = 0; i < worksElements.length; i++) {
+                const work = worksElements[i];
 
-//         // console.log(workCat1)
+                // Link with the gallery section 
+                const sectionGallery = document.querySelector(".gallery");
 
+                // Creation of the figure inside the gallery sect°
+                const figureDiv = document.createElement("figure")
 
 
-//         let match = recipes.filter(function (element) {
-//             console.log(element)
-//             if (element.title === 'Citronnade') {
-//                 return element;
-//             }});
-            
+                const workTitle = document.createElement("h3");
+                workTitle.innerText = work.title;
+                const workImage = document.createElement("img");
+                workImage.src = work.imageUrl;
 
-//         console.log(match); // Retourne les 2 dernières lignes
-
-
+                sectionGallery.appendChild(figureDiv)
+                figureDiv.appendChild(workImage);
+                figureDiv.appendChild(workTitle);
 
 
+            }
+        }
 
-//     })
+        generateWork(worksElements)
+
+        // links for the filters 
+        const btnAll = document.querySelector(".btn-all");
+        const btnObjects = document.querySelector(".btn-objects");
+        const btnFlats = document.querySelector(".btn-flats");
+        const btnHotels = document.querySelector(".btn-hotels");
+
+        // All works are displayed
+        btnAll.addEventListener("click", function () {
+            const cat = worksElements;
+            console.log(cat);
+            document.querySelector('.gallery').innerHTML = "";
+            generateWork(cat)
+        });
+
+        // Works from category "objects"
+        btnObjects.addEventListener("click", function () {
+            const cat = worksElements.filter(function (work) {
+                if (work.category.name === "Objets") {
+                    return work;
+                }
+            });
+            document.querySelector('.gallery').innerHTML = "";
+            generateWork(cat)
+        });
+
+        // Works from category "flats"
+        btnFlats.addEventListener("click", function () {
+            const cat = worksElements.filter(function (work) {
+                if (work.category.name === "Appartements") {
+                    return work;
+                }
+            });
+            console.log(cat)
+            document.querySelector('.gallery').innerHTML = "";
+            generateWork(cat)
+        });
+
+        // Works from category "hotels and restaurants"
+        btnHotels.addEventListener("click", function () {
+            const cat = worksElements.filter(function (work) {
+                if (work.category.name === "Hotels & restaurants") {
+                    return work;
+                }
+            });
+            console.log(cat)
+            document.querySelector('.gallery').innerHTML = "";
+            generateWork(cat)
+        });
+
+    });
+
