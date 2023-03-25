@@ -3,7 +3,7 @@ fetch('http://localhost:5678/api/works')
     .then(worksElements => {
         console.log(worksElements)
 
-
+// Function to update the display of the DOM
         function generateWork(worksElements) {
             for (let i = 0; i < worksElements.length; i++) {
                 const work = worksElements[i];
