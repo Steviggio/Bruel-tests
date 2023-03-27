@@ -270,6 +270,15 @@ li:hover {
     margin: auto;
 }
 
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+#btn-connect:hover {
+    cursor: pointer;
+}
+
 #contact>*, .login>* {
     text-align: center;
 
@@ -311,6 +320,14 @@ input[type="submit"] {
     width: 180px;
     text-align: center;
     border-radius: 60px;
+}
+
+footer {
+    background-color: white;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 footer nav ul {
