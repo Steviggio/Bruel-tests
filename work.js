@@ -1,3 +1,10 @@
+// import { identifyUser } from "./login";
+
+// let data = window.localStorage.getItem('data')
+// if (data === null) {
+//     identifyUser()
+// }
+
 fetch('http://localhost:5678/api/works')
     .then(response => response.json())
     .then(worksElements => {

@@ -10,3 +10,9 @@ let exemple = "Compréhension"
 
 promiseUn(exemple) 
 promisedeux()
+
+let template = "Steve Mothmora"
+
+const text = `"Ouais ouais la street, ${template} est arrivé"`
+
+console.log(text)
