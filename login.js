@@ -34,19 +34,14 @@ btnConnect.addEventListener("click", function(){
         },
         body: chargeUtile
     })
-        .then(response => response.json())
-        .then(data => {
-            // stocket le token dans le localStorage 
-            window.localStorage.setItem("data", data);
-            //rediriger l'utilisateur vers la page d'accueuil
-            window.location.href = "index.html";
-        })
-        .catch(error => {
-            console.error("Erreur lors de l'authentification : " + error);
-            window.location.href = "login.html"
-        });
+    .then(response => response.json())
+    .then(data => {
+        // Stocker les data dans le localStorage
+        window.localStorage.setItem("data", data);
+        // Rediriger vers la page d'accueil
+        window.location.href = "index.html";
+    })
 })
-
 
 
 
