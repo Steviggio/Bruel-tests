@@ -1,7 +1,23 @@
+
+
 fetch('http://localhost:5678/api/works')
     .then(response => response.json())
     .then(worksElements => {
         console.log(worksElements)
+        // find if datas are in the localStorage
+        if (localStorage.getItem('data') !== null) {
+            // get the datas and parsing it and get token
+            let data = window.localStorage.getItem("data")
+            let parseData = JSON.parse(data)
+            let token = parseData.token
+            console.log(token)
+
+            const modal = document.querySelector('.modal-section');
+            modal.style.display = 'block';
+        }else {
+            const modal = document.querySelector('.modal-section');
+            modal.style.display = 'none';
+        }
 
         // Function to update the display of the DOM
         function generateWork(worksElements) {
