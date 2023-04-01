@@ -237,8 +237,14 @@ li:hover {
 }
 
 #introduction {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    gap: 72px;
 }
 
 #introduction figure {
@@ -248,7 +254,7 @@ li:hover {
 #introduction img {
     display: block;
     margin: auto;
-    width: 80%;
+    width: 100%;
 }
 
 #introduction article {
@@ -256,14 +262,17 @@ li:hover {
 }
 
 #introduction h2 {
-    margin-bottom: 1em;
+    margin-bottom: 0.6em;
 }
 
 #introduction p {
-    margin-bottom: 0.5em;
+    font-size: medium;
+    margin-bottom: 1em;
+    line-height: 1.2;
 }
 
 #portfolio h2 {
+    font-size: 26px;
     text-align: center;
     margin-bottom: 1em;
 }
@@ -302,21 +311,22 @@ li:hover {
 }
 
 .gallery {
-    width: 100%;
+    width: 70%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .gallery img {
     width: 100%;
-    height: 600px;
 }
 
 #contact,
 .login {
-    width: 50%;
+    width: 28%;
     margin: auto;
 }
 
