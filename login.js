@@ -2,7 +2,7 @@
 
 const user = {
     "email": "sophie.bluel@test.tld",
-    "password": "S0phie" 
+    "password": "S0phie"
 }
 
 const chargeUtile = JSON.stringify(user)
@@ -16,13 +16,17 @@ fetch("http://localhost:5678/api/users/login", {
     },
     body: chargeUtile
 })
-.then(response => response.json())
-.then(data => {
-    console.log(data);
-    let serializedData = JSON.stringify(data)
-    window.localStorage.setItem("data", serializedData)
-    window.location.href = "index.html"
-})
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        if (data.token != null) {
+        let serializedData = JSON.stringify(data)
+        window.localStorage.setItem("data", serializedData)
+        window.location.href = "index.html"}
+        else {
+            alert("Erreur dans le mot de passe ou l'identifiant")
+        }
+    })
 
 
 

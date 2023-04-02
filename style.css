@@ -248,13 +248,33 @@ li:hover {
 }
 
 #introduction figure {
-    flex: 1
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 #introduction img {
     display: block;
     margin: auto;
     width: 100%;
+}
+
+#introduction-modal {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#introduction-modal a {
+    text-decoration: none;
+}
+
+#introduction-modal img {
+    display: flex;
+    height: 18px;
+    width: auto;
+    margin-left: 0;
+    margin-right: 10px;
 }
 
 #introduction article {
@@ -308,6 +328,19 @@ li:hover {
 .buttons:hover {
     background-color: #1D6154;
     color: white;
+}
+
+#portfolio-modal {
+    position: relative;
+    display: flex;
+    left: 59%;
+    top: -48px;
+    align-items: center;
+}
+
+#portfolio-modal img {
+    height: 18px;
+    margin-right: 10px
 }
 
 .gallery {

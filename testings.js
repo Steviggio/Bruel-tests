@@ -14,7 +14,7 @@ fetch('http://localhost:5678/api/works')
 
             const modal = document.querySelector('.modal-section');
             modal.style.display = 'block';
-        }else {
+        } else {
             const modal = document.querySelector('.modal-section');
             modal.style.display = 'none';
         }
@@ -40,10 +40,9 @@ fetch('http://localhost:5678/api/works')
                 figureDiv.appendChild(workImage);
                 figureDiv.appendChild(workTitle);
 
-
             }
         }
-
+        
         generateWork(worksElements)
 
         // links for the filters 
