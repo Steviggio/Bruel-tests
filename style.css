@@ -157,7 +157,7 @@ section {
     margin: 50px 0
 }
 
-.modal-section {
+.modal-management {
     position: relative;
     color: white;
     background-color: black;
@@ -166,7 +166,7 @@ section {
     align-items: center
 }
 
-.modal-content {
+.modal-btn {
     position: absolute;
     top: 50%;
     left: 50%;

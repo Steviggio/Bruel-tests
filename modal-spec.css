@@ -1,0 +1,151 @@
+/* Required specs to position the modal */
+
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+figure {
+    margin: 0
+}
+
+figure figcaption {
+    position: relative;
+    top: -2px;
+    font-size: 12px;
+}
+
+.gallery {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    column-gap: 9px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45px;
+    margin-bottom: 50px;
+}
+
+.gallery img {
+    height: 105px;
+}
+
+#modal-box {
+    position: fixed;
+    z-index: 1;
+    /* To sit on top of the other contents */
+    padding-top: 0;
+    /* To position the modal as you like */
+    left: 0;
+    top: 0;
+    width: 83%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-box-content {
+    background-color: #fefefe;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 630px;
+    border-radius: 10px;
+}
+
+.modal-box-content h2 {
+    text-align: center;
+    margin-bottom: 0px;
+    font-weight: 200;
+    font-family: 'Work Sans';
+}
+
+.modal-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
+    width: 50%;
+}
+
+.modal-border {
+    width: 70%;
+    border-top: solid 1px #B3B3B3;
+    margin: 35px auto;
+}
+
+#modal-box-add {
+    color: white;
+    background-color: #1D6154;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 8px 40px;
+    border-radius: 25px;
+    font-family: 'Syne';
+    border: none;
+    cursor: pointer;
+}
+
+#modal-box-delete {
+    color: #D65353;
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.modal-icons {
+    position: absolute;
+}
+
+.modal-delete-icon img {
+    position: absolute;
+    top: -123px;
+    left: 58px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    background-image: url("/assets/icons/black-rectangle.png") ;
+}
+
+/* .modal-icon-background {
+    position: absolute;
+    left: 58px;
+}
+
+.modal-icon-background img {
+    height: 17px;
+    border-radius: 2px;
+} */
+
+
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
