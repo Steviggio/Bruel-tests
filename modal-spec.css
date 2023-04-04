@@ -10,6 +10,7 @@ img {
 }
 
 figure {
+    position: relative;
     margin: 0
 }
 
@@ -19,7 +20,12 @@ figure figcaption {
     font-size: 12px;
 }
 
+figure button {
+    position: relative;
+}
+
 .gallery {
+    position: relative;
     width: 70%;
     display: flex;
     flex-wrap: wrap;
@@ -82,6 +88,46 @@ figure figcaption {
     width: 50%;
 }
 
+#modal-fig-btn {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    height: 17px;
+    width: 17px;
+    background: none;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-fig-btn img {
+    height: 9px;
+}
+
+#modal-fig-vector {
+    position: absolute;
+    top: 7px;
+    right: 25px;
+    height: 17px;
+    width: 17px;
+    background: none;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-fig-vector img {
+    height: 13px;
+}
+
 .modal-border {
     width: 70%;
     border-top: solid 1px #B3B3B3;
@@ -107,20 +153,6 @@ figure figcaption {
     background: none;
     cursor: pointer;
     margin-bottom: 20px;
-}
-
-.modal-icons {
-    position: absolute;
-}
-
-.modal-delete-icon img {
-    position: absolute;
-    top: -123px;
-    left: 58px;
-    height: 10px;
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-    background-image: url("/assets/icons/black-rectangle.png") ;
 }
 
 /* .modal-icon-background {
