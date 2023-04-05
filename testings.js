@@ -12,12 +12,9 @@ fetch('http://localhost:5678/api/works')
             let token = parseData.token
             console.log(token)
 
-            const modal = document.querySelector('.modal-section');
-            modal.style.display = 'block';
-        } else {
-            const modal = document.querySelector('.modal-section');
-            modal.style.display = 'none';
-        }
+            // const modal = document.querySelector('.modal-section');
+            // modal.style.display = 'block';
+        } 
 
         // Function to update the display of the DOM
         function generateWork(worksElements) {
