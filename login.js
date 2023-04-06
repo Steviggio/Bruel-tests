@@ -18,12 +18,13 @@ fetch("http://localhost:5678/api/users/login", {
 })
     .then(response => response.json())
     .then(data => {
+        console.log("0000000000001")
         console.log(data);
         if (data.token != null) {
         let serializedData = JSON.stringify(data)
         window.localStorage.setItem("data", serializedData)
-        window.location.href = "index.html"}
-        else {
+        // window.location.href = "index.html"}
+        } else {
             alert("Erreur dans le mot de passe ou l'identifiant")
         }
     })

@@ -2,54 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="modal-spec.css">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="modal-spec.css">
+	<title>Document</title>
 </head>
 
 <body>
-    <div id="modal-box">
-        <div class="modal-box-content">
-            <span>
-                <button id="modal-add-btn">
-                    <img id="modal-add-arrow-img" src="/assets/icons/back.png" alt="">
-                </button>
-            </span>
-            <span class="close">&times;</span>
-            <h2 id="modal-add-title">Ajout photo</h2>
-            <div class="modal-add-box">
-                <div id="modal-add-jpg">
-                    <div id="modal-add-jpg-container"></div>
-                    <img class="modal-add-element" id="modal-add-img" src="/assets/icons/modal-add.png" alt="">
-                    <input class="modal-add-element" type="file" name="image" accept="image/*" id="modal-add-input">
-                    <label for="modal-add-input" id="modal-add-jpg-btn">+ Ajouter
-                        photo</label>
-                    <p class="modal-add-element" id="modal-add-text">jpg, png : 4mo max</p>
-                </div>
-                <form id="modal-add-form" action="">
-                    <label for="title">Titre</label>
-                    <input type="text" name="title" id="title">
-                    <label for="category">Catégorie</label>
-                    <div id="datalist">
-                        <input list="categories" name="category" id="category">
-                        <i id="datalist-icon" class="icon iconfont icon-arrow"></i>
-                    </div>
-                </form>
-            </div>
+	<div id="modal-box">
+		<div class="modal-box-content">
+			<span>
+				<button id="modal-add-btn">
+					<img id="modal-add-arrow-img" src="/assets/icons/back.png" alt="">
+				</button>
+			</span>
+			<span class="close">&times;</span>
+			<h2 id="modal-add-title">Ajout photo</h2>
+			<div class="modal-add-box">
+				<div id="modal-add-jpg">
+					<div id="modal-add-jpg-container"></div>
+					<img class="modal-add-element" id="modal-add-img" src="/assets/icons/modal-add.png" alt="">
+					<input class="modal-add-element" type="file" name="image" accept="image/*" id="modal-add-input">
+					<label for="modal-add-input" id="modal-add-jpg-btn">+ Ajouter
+						photo</label>
+					<p class="modal-add-element" id="modal-add-text">jpg, png : 4mo max</p>
+				</div>
+				<form id="modal-add-form" action="">
+					<label for="title">Titre</label>
+					<input type="text" name="title" id="title">
+					<label for="category">Catégorie</label>
+					<div id="datalist">
+						<input list="categories" name="category" id="category">
+						<i id="datalist-icon" class="icon iconfont icon-arrow"></i>
+					</div>
+				</form>
+			</div>
 
-            <div class="modal-border"></div>
-            <div class="modal-btns">
-                <button id="modal-box-validate">Valider</button>
-            </div>
-        </div>
-    </div>
-    <script src="ajouter-photo.js"></script>
+			<div class="modal-border"></div>
+			<div class="modal-btns">
+				<button id="modal-box-validate">Valider</button>
+			</div>
+		</div>
+	</div>
+	<script src="ajouter-photo.js"></script>
 </body>
 
 </html>
