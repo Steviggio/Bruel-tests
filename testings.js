@@ -12,8 +12,8 @@ fetch('http://localhost:5678/api/works')
             let token = parseData.token
             console.log(token)
 
-            // const modal = document.querySelector('.modal-section');
-            // modal.style.display = 'block';
+            const modal = document.querySelector('.modal-management');
+            modal.style.display = 'block';
         } 
 
         // Function to update the display of the DOM

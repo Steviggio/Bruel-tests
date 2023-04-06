@@ -176,12 +176,12 @@ section {
     align-items: center;
 }
 
-.modal-content img {
+.modal-btn img {
     height: 15px;
     margin-right: 10px
 }
 
-.modal-content button {
+.modal-btn button {
     font-weight: bold;
     padding: 11px 16px;
     background-color: white;
@@ -336,6 +336,10 @@ li:hover {
     left: 59%;
     top: -48px;
     align-items: center;
+}
+
+#portfolio-modal a {
+    text-decoration: none;
 }
 
 #portfolio-modal img {
