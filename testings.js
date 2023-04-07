@@ -49,6 +49,7 @@ fetch('http://localhost:5678/api/works')
         const btnObjects = document.querySelector(".btn-objects");
         const btnFlats = document.querySelector(".btn-flats");
         const btnHotels = document.querySelector(".btn-hotels");
+        const btnModal = document.getElementById("btn-modal");
 
         // All works are displayed
         btnAll.addEventListener("click", function () {
@@ -93,5 +94,8 @@ fetch('http://localhost:5678/api/works')
             generateWork(cat)
         });
 
+        btnModal.onclick = function() {
+            modal.style.display
+        }
     });
 

@@ -24,22 +24,22 @@ img {
     vertical-align: baseline;
 }
 
-figure {
+.modal-gallery figure {
     position: relative;
     margin: 0
 }
 
-figure figcaption {
+.modal-gallery figure figcaption {
     position: relative;
     top: -2px;
     font-size: 12px;
 }
 
-figure button {
+.modal-gallery figure button {
     position: relative;
 }
 
-.gallery {
+.modal-gallery {
     position: relative;
     width: 70%;
     display: flex;
@@ -52,7 +52,7 @@ figure button {
     margin-bottom: 50px;
 }
 
-.gallery img {
+.modal-gallery img {
     height: 105px;
 }
 
