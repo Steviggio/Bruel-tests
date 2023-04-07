@@ -14,7 +14,9 @@ fetch('http://localhost:5678/api/works')
 
             const modal = document.querySelector('.modal-management');
             modal.style.display = 'block';
-        } 
+        } else {
+            modal.style.display = 'none'
+        }
 
         // Function to update the display of the DOM
         function generateWork(worksElements) {
@@ -39,7 +41,7 @@ fetch('http://localhost:5678/api/works')
 
             }
         }
-        
+
         generateWork(worksElements)
 
         // links for the filters 

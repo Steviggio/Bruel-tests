@@ -163,7 +163,8 @@ section {
     background-color: black;
     margin: 0;
     height: 59px;
-    align-items: center
+    align-items: center;
+    display: none;
 }
 
 .modal-btn {
