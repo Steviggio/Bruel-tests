@@ -27,7 +27,7 @@ input.addEventListener('change', () => {
     // Création d'un élément image
     const image = new Image();
     image.src = reader.result;
-    
+
     // Ajout de l'image à la div de prévisualisation
     preview.appendChild(image);
   });
@@ -37,4 +37,51 @@ input.addEventListener('change', () => {
     modalElement.style.display = "none"
     modalLabel.style.display = "none"
   }
-});
+
+  const form = document.querySelector('form');
+  const title = document.getElementById('title');
+  const category = document.getElementById('category');
+  const validateBtn = document.getElementById('modal-box-validate')
+
+  function checkInputs() {
+    // Vérifier si les champs sont remplis 
+    if (title.value.trim() !== '' && category.value.trim() !== '') {
+      // Si les champs sont remplis, activer le bouton 'valider' 
+      validateBtn.classList.add('active');
+    } else {
+      validateBtn.classList.remove('active');
+    }
+  }
+
+  title.addEventListener('input', checkInputs);
+  category.addEventListener('input', checkInputs);
+
+  function sendWork() {
+
+    const form = document.querySelector('form');
+    const image = document.getElementById("modal-add-input");
+    const title = document.getElementById('title');
+    const category = document.getElementById('category');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      // Création de l'object à envoyer vers l'API
+      const work = {
+        "image": image.value,
+        "title": title.value,
+        "category": category.value
+      };
+
+      console.log(work)
+
+      // const bodyJson = JSON.stringify(work);
+      // fetch('http://localhost:5678/api/works', {
+      //     method: "POST",
+      //     headers: {"Content-Type": "application/json" },
+      //     body: bodyJson
+      // });
+    });
+
+  }
+  sendWork()
+  });

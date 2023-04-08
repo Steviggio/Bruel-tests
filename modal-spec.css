@@ -103,7 +103,7 @@ img {
     width: 50%;
 }
 
-#modal-fig-btn {
+.modal-gallery figure button {
     position: absolute;
     top: 7px;
     right: 5px;
@@ -119,11 +119,11 @@ img {
     align-items: center;
 }
 
-#modal-fig-btn img {
+.modal-gallery figure button img {
     height: 9px;
 }
 
-#modal-fig-vector {
+.modal-gallery figure:first-child button:first-child {
     position: absolute;
     top: 7px;
     right: 25px;
@@ -139,7 +139,7 @@ img {
     align-items: center;
 }
 
-#modal-fig-vector img {
+.modal-gallery figure:first-child button:first-child img {
     height: 13px;
 }
 
@@ -231,13 +231,17 @@ img {
     width: 78%;
     margin-bottom: 30px;
     background-color: grey;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
     padding: 8px 40px;
     border-radius: 25px;
     font-family: 'Syne';
     border: none;
     cursor: pointer;
+}
+
+#modal-box-validate.active {
+    background-color: green;
 }
 
 #modal-add-form {
@@ -253,6 +257,10 @@ input[type="file"] {
     opacity: 0;
     z-index: -1;
     position: absolute;
+}
+
+input[type='text'] {
+    font-family: 'Work Sans';
 }
 
 #modal-add-jpg-container {
