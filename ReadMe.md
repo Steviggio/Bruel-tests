@@ -15,3 +15,4 @@ Tests en tout genre pour me permettre de manipuler -
 # Afficher dynamiquement les images provenant d'une API 
 
 # Charger une photo, la prévisualiser et l'envoyer vers une API
+

@@ -17,7 +17,7 @@ fetch('http://localhost:5678/api/works')
 				const modalDelete = document.createElement('button');
 
 				const modalImage = document.createElement('img');
-        modalImage.src = work.imageUrl
+				modalImage.src = work.imageUrl
 
 				const modalFigCaption = document.createElement('figcaption');
 				modalFigCaption.innerText = "éditer"
@@ -71,19 +71,19 @@ fetch('http://localhost:5678/api/works')
 			modalBar.style.display = 'block';
 			const modalModify = document.querySelector('.modal-modify-btn');
 			modalModify.style.display = 'block';
-			generateModalWork(worksElements)
+			// generateModalWork(worksElements)
 		}
 
 
 		generateWork(worksElements)
-		generateModalWork(worksElements)
+		// generateModalWork(worksElements)
 
-		// links for the filters 
+		// links for the filters with the DOM
 		const btnAll = document.querySelector(".btn-all");
 		const btnObjects = document.querySelector(".btn-objects");
 		const btnFlats = document.querySelector(".btn-flats");
 		const btnHotels = document.querySelector(".btn-hotels");
-		const btnModal = document.getElementById("btn-modal");
+
 
 		// All works are displayed
 		btnAll.addEventListener("click", function () {
@@ -96,7 +96,7 @@ fetch('http://localhost:5678/api/works')
 		// Works from category "objects"
 		btnObjects.addEventListener("click", function () {
 			const cat = worksElements.filter(function (work) {
-				if (work.category.name === "Objets") {
+				if (work.category.name === "Objets" || work.category.id === 1) {
 					return work;
 				}
 			});
@@ -107,7 +107,7 @@ fetch('http://localhost:5678/api/works')
 		// Works from category "flats"
 		btnFlats.addEventListener("click", function () {
 			const cat = worksElements.filter(function (work) {
-				if (work.category.name === "Appartements") {
+				if (work.category.name === "Appartements" || work.category.id === 2) {
 					return work;
 				}
 			});
@@ -119,7 +119,7 @@ fetch('http://localhost:5678/api/works')
 		// Works from category "hotels and restaurants"
 		btnHotels.addEventListener("click", function () {
 			const cat = worksElements.filter(function (work) {
-				if (work.category.name === "Hotels & restaurants") {
+				if (work.category.name === "Hotels & restaurants" || work.category.id === 3) {
 					return work;
 				}
 			});
@@ -128,8 +128,26 @@ fetch('http://localhost:5678/api/works')
 			generateWork(cat)
 		});
 
+		// DOM links for the modal
+		const btnModal = document.getElementsByClassName("modal-modify-btn");
+		const modal = document.getElementById("modal-box");
+		const span = document.getElementsByClassName("close");
+
+		// When the user clicks on the 
 		btnModal.onclick = function () {
-			modal.style.display
+			modal.style.display = "block"
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
 		}
 	});
 

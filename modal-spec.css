@@ -11,6 +11,10 @@
     /* iOS 4.1- */
 }
 
+* {
+    box-sizing: border-box;
+}
+
 input::-webkit-calendar-picker-indicator {
     opacity: 100;
 }
@@ -56,15 +60,18 @@ img {
     height: 105px;
 }
 
-#modal-box {
+.modal-main {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
     /* To sit on top of the other contents */
     padding-top: 0;
     /* To position the modal as you like */
     left: 0;
     top: 0;
-    width: 83%;
+    width: 100%;
     /* Full width */
     height: 100%;
     /* Full height */
@@ -72,13 +79,14 @@ img {
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.8);
     /* Black w/ opacity */
 }
 
 .modal-box-content {
     background-color: #fefefe;
-    margin: 20px auto;
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
     padding: 20px;
     border: 1px solid #888;
     width: 630px;
@@ -342,11 +350,12 @@ i {
 
 
 /* The Close Button */
-.close {
+.js-close {
     color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .close:hover,
