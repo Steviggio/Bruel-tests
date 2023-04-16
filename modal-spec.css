@@ -16,8 +16,8 @@
 }
 
 input::-webkit-calendar-picker-indicator {
-    opacity: 100;
-}
+    opacity: 0;
+  }
 
 img {
     margin: 0;
@@ -93,6 +93,10 @@ img {
     border-radius: 10px;
 }
 
+#modal-photo {
+    height: 80%;
+}
+
 .modal-box-content h2 {
     text-align: center;
     margin-bottom: 0px;
@@ -157,6 +161,10 @@ img {
     margin: 35px auto;
 }
 
+#titlemodal {
+    padding-top:px;
+}
+
 
 #modal-box-add {
     color: white;
@@ -170,6 +178,8 @@ img {
     cursor: pointer;
 }
 
+#gallery-modal h2
+
 #modal-box-delete {
     color: #D65353;
     text-decoration: none;
@@ -179,7 +189,7 @@ img {
     margin-bottom: 20px;
 }
 
-#modal-add-btn {
+#js-modal-back {
     background: none;
     border: none;
     cursor: pointer;
@@ -203,14 +213,14 @@ img {
     flex-direction: column;
     background-color: #E8F1F6;
     border-radius: 3px;
-    height: 193px;
+    height: 180px;
     width: 70%;
 }
 
 #modal-add-img {
-    width: 70px;
+    width: 60px;
     margin-top: 28px;
-    height: 60px;
+    height: 50px;
 }
 
 #modal-add-jpg-btn {
@@ -280,7 +290,7 @@ input[type='text'] {
 }
 
 #modal-add-jpg-container img {
-    height: 193px;
+    height: 180px;
     width: 145px;
     box-sizing: border-box;
 }
@@ -289,7 +299,7 @@ input[type='text'] {
     font-weight: lighter;
     font-family: "Work Sans";
     font-size: 16px;
-    margin: 2em 0 1em 0;
+    margin: 15px 0 1em 0;
 }
 
 #modal-add-form input {
@@ -348,6 +358,9 @@ i {
     content: "\e625";
 }
 
+#add-photo {
+    display: none;
+}
 
 /* The Close Button */
 .js-close {

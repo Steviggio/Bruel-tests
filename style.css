@@ -338,9 +338,10 @@ li:hover {
 #portfolio-modal {
 	position: relative;
 	display: flex;
-	left: 59%;
+	left: 61%;
 	top: -48px;
 	align-items: center;
+	margin-bottom: 17px;
 }
 
 #portfolio-modal a {
@@ -356,14 +357,18 @@ li:hover {
 	width: 70%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+	grid-column-gap: 12px;
+	grid-row-gap: 12px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .gallery img {
 	width: 100%;
+}
+
+.gallery figure h3 {
+	font-size: 13px;
 }
 
 #contact,
@@ -455,6 +460,8 @@ footer nav ul {
 
 /* Required specs to position the modal */
 
+/* Required specs to position the modal */
+
 @font-face {
 	font-family: "iconfont";
 	src: url("iconfont.eot?t=1519919520638");
@@ -466,8 +473,12 @@ footer nav ul {
 	/* iOS 4.1- */
 }
 
+* {
+	box-sizing: border-box;
+}
+
 input::-webkit-calendar-picker-indicator {
-	opacity: 100;
+	opacity: 0;
 }
 
 img {
@@ -496,7 +507,7 @@ img {
 
 .modal-gallery {
 	position: relative;
-	width: 70%;
+	width: 75%;
 	display: flex;
 	flex-wrap: wrap;
 	row-gap: 5px;
@@ -511,15 +522,18 @@ img {
 	height: 105px;
 }
 
-#modal-box {
+.modal-main {
 	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	z-index: 1;
 	/* To sit on top of the other contents */
 	padding-top: 0;
 	/* To position the modal as you like */
 	left: 0;
 	top: 0;
-	width: 83%;
+	width: 100%;
 	/* Full width */
 	height: 100%;
 	/* Full height */
@@ -527,21 +541,27 @@ img {
 	/* Enable scroll if needed */
 	background-color: rgb(0, 0, 0);
 	/* Fallback color */
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.8);
 	/* Black w/ opacity */
-	display: none;
 }
 
 .modal-box-content {
 	background-color: #fefefe;
-	margin: 20px auto;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
 	padding: 20px;
 	border: 1px solid #888;
 	width: 630px;
 	border-radius: 10px;
 }
 
+#modal-photo {
+	height: 80%;
+}
+
 .modal-box-content h2 {
+	font-size: 25px;
+	color: black;
 	text-align: center;
 	margin-bottom: 0px;
 	font-weight: 200;
@@ -627,7 +647,7 @@ img {
 	margin-bottom: 20px;
 }
 
-#modal-add-btn {
+#js-modal-back {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -651,14 +671,14 @@ img {
 	flex-direction: column;
 	background-color: #E8F1F6;
 	border-radius: 3px;
-	height: 193px;
+	height: 180px;
 	width: 70%;
 }
 
 #modal-add-img {
-	width: 70px;
+	width: 60px;
 	margin-top: 28px;
-	height: 60px;
+	height: 50px;
 }
 
 #modal-add-jpg-btn {
@@ -728,7 +748,7 @@ input[type='text'] {
 }
 
 #modal-add-jpg-container img {
-	height: 193px;
+	height: 180px;
 	width: 145px;
 	box-sizing: border-box;
 }
@@ -737,7 +757,7 @@ input[type='text'] {
 	font-weight: lighter;
 	font-family: "Work Sans";
 	font-size: 16px;
-	margin: 2em 0 1em 0;
+	margin: 15px 0 1em 0;
 }
 
 #modal-add-form input {
@@ -796,13 +816,17 @@ i {
 	content: "\e625";
 }
 
+#add-photo {
+	display: none;
+}
 
 /* The Close Button */
-.close {
+.js-close {
 	color: black;
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 .close:hover,
