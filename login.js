@@ -36,6 +36,7 @@ btnConnect.addEventListener("click", async function (event) {
 				let serializedData = JSON.stringify(data)
 				try {
 					window.localStorage.setItem("data", serializedData)
+					alert("Connection réussie")
 					// Rediriger l'utilisateur vers une autre page après avoir enregistré les données dans le stockage
 					window.location.href = "index.html"
 				} catch (e) {

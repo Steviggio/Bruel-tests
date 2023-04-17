@@ -5,9 +5,11 @@ fetch('http://localhost:5678/api/works')
 	.then(worksElements => {
 		console.log(worksElements)
 
-		function generateModalWork(worksElements) {
+		function modalWork(worksElements) {
+
 			for (let i = 0; i < worksElements.length; i++) {
 				const work = worksElements[i];
+
 
 				const modalSection = document.querySelector('.modal-gallery');
 
@@ -15,27 +17,52 @@ fetch('http://localhost:5678/api/works')
 				const modalFigure = document.createElement("figure");
 
 				const modalDelete = document.createElement('button');
+				modalDelete.className = 'deleteButtons'
+				modalDelete.id = work.id
+				const modalDeleteImage = document.createElement('img');
+				modalDeleteImage.src = './assets/icons/trash-bin-big.png';
+
 
 				const modalImage = document.createElement('img');
 				modalImage.src = work.imageUrl
 
 				const modalFigCaption = document.createElement('figcaption');
-				modalFigCaption.innerText = "éditer"
+				modalFigCaption.innerText = "éditer";
 
-
+				// modalDeleteImage.addEventListener("click", function())
 				// Display works in the figures
 
+				if (i === 0) {
+					const modalArrow = document.createElement('button');
+					const modalArrowImage = document.createElement('img');
+					modalArrowImage.src = './assets/icons/vector.png';
 
-				// Adding the elements in the DOM 
+					modalFigure.appendChild(modalArrow);
+					modalArrow.appendChild(modalArrowImage);
+				}
+				// Adding the elements in the DOM
 				modalSection.appendChild(modalFigure)
 				modalFigure.appendChild(modalDelete);
+				modalDelete.appendChild(modalDeleteImage);
+				modalFigure.appendChild(modalImage);
 				modalFigure.appendChild(modalFigCaption);
-				modalFigure.appendChild(modalImage)
+
+
+				// Attaching event listener to delete buttons 
+				// 	modalDelete.addEventListener("click", function () {
+				// 		console.log('000000001' + this.id);
+				// });
+
+
 			}
 		}
 
+
+
+
 		// Function to update the display of the DOM
 		function generateWork(worksElements) {
+
 			for (let i = 0; i < worksElements.length; i++) {
 				const work = worksElements[i];
 
@@ -66,11 +93,14 @@ fetch('http://localhost:5678/api/works')
 			let token = parseData.token
 			console.log(token)
 
-
+			let filterSection = document.querySelector('.filter');
+			filterSection.style.display = "none"
 			const modalBar = document.querySelector('.modal-management');
 			modalBar.style.display = 'block';
-			const modalModify = document.querySelector('.modal-modify-btn');
-			modalModify.style.display = 'block';
+			const modalModify = document.querySelectorAll('.modal-modify-btn');
+			modalModify.forEach(div =>
+				div.style.display = 'block')
+
 			// generateModalWork(worksElements)
 		}
 
@@ -128,26 +158,107 @@ fetch('http://localhost:5678/api/works')
 			generateWork(cat)
 		});
 
-		// DOM links for the modal
-		const btnModal = document.getElementsByClassName("modal-modify-btn");
-		const modal = document.getElementById("modal-box");
-		const span = document.getElementsByClassName("close");
+		let form = document.getElementById('modal-add-form');
+		let inputPhoto = document.getElementById("modal-add-input");
+		// Request for the 'new work' POST request 
+		form.addEventListener('submit', async function (event) {
+			event.preventDefault();
+			let categoryId = null;
 
-		// When the user clicks on the 
-		btnModal.onclick = function () {
-			modal.style.display = "block"
-		}
+			await fetch('http://localhost:5678/api/categories')
+				.then(response => response.json())
+				.then(data => {
 
-		// When the user clicks on <span> (x), close the modal
-		span.onclick = function () {
-			modal.style.display = "none";
-		}
+					console.log(data);
 
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
+
+					for (let i = 0; i < data.length; i++) {
+						if (category.value === data[i].name) {
+							categoryId = data[i].id;
+							console.log(categoryId);
+							break; // Sortir de la boucle dès qu'une correspondance est trouvée
+						}
+					}
+					console.log(categoryId);
+				})
+
+
+			console.log(form)
+
+			// Création de l'objetFormData à envoyer vers l'API - 
+			let formData = new FormData();
+
+			// const image = "http://localhost/images/" + input.files[0]
+			console.log("0000000001" + input.value);
+			formData.append("image", input.files[0]);
+			console.log("0000000001" + title.value);
+			formData.append("title", title.value);
+			formData.append("category", categoryId); // Utiliser l'ID correspondant;
+			console.log(formData);
+
+			await fetch('http://localhost:5678/api/works', {
+				method: "POST",
+				headers: { 'Authorization': `Bearer ${token + " " + `userId:${userId}`}`, 'Accept': '*/*' },
+				body: formData
+			}).then(response => {
+				if (response.status === 201) {
+					console.log(response.json())
+					modalBox2.style.display = 'none'
+
+					form.reset()
+					inputPhoto.innerHTML = '' 
+					document.querySelector('.modal-gallery').innerHTML = '';
+					document.querySelector(".gallery").innerHTML = "";
+					fetch('http://localhost:5678/api/works')
+						.then(response => response.json())
+						.then(worksElements => {
+							generateWork(worksElements)
+							modalWork(worksElements)
+						}
+						)
+				}
+			})
+
+		});
+
+
+		const deleteButtons = document.querySelectorAll('.deleteButtons')
+		deleteButtons.forEach(button => {
+			button.addEventListener("click", async () => {
+				// Get the ID of the element that'll be deleted by using the stored data in the 'data-id' attribute of the button
+				let id = button.getAttribute('id');
+				console.log(id)
+
+				// Send the request to the API to delete the element with the corresponding ID
+				await fetch(`http://localhost:5678/api/works/${id}`, {
+					method: "DELETE",
+					headers: { 'Authorization': `Bearer ${token + " " + `userId:${userId}`}`, 'Accept': '*/*' }
+				})
+					.then(response => {
+						if (response.ok) {
+							// Update the gallery by refreshing the page
+							// let item = document.querySelector(`.modal-gallery .item[data-id=${id}]`);
+							// item.parentNode.removeChild(item);
+							document.querySelector('.modal-gallery').innerHTML = '';
+							document.querySelector('.gallery').innerHTML = '',
+								fetch('http://localhost:5678/api/works')
+									.then(response => response.json())
+									.then(worksElements => {
+										modalWork(worksElements)
+										generateWork(worksElements)
+									})
+
+						} else {
+							console.error("Une erreur est survenue !")
+						}
+
+					})
+					.catch(error =>
+						console.error(error))
+			});
+
+		})
+
+
 	});
 

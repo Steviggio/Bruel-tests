@@ -1,30 +1,44 @@
 // Function to update the display of the DOM
-export async function generateWork(worksElements) {
-    for (let i = 0; i < worksElements.length; i++) {
-        const work = worksElements[i];
+export async function generateWork() {
 
-        // Link with the gallery section 
-        const sectionGallery = document.querySelector(".gallery");
+    await fetch('http://localhost:5678/api/works')
+        .then(response => response.json())
+        .then(worksElements => {
+            console.log(worksElements)
 
-        // Adding a figure to the gallery sect°
-        const figureDiv = document.createElement("figure")
+            for (let i = 0; i < worksElements.length; i++) {
+                const work = worksElements[i];
 
+                // Link with the gallery section 
+                const sectionGallery = document.querySelector(".gallery");
 
-        const workTitle = document.createElement("h3");
-        workTitle.innerText = work.title;
-        const workImage = document.createElement("img");
-        workImage.src = work.imageUrl;
-
-        sectionGallery.appendChild(figureDiv)
-        figureDiv.appendChild(workImage);
-        figureDiv.appendChild(workTitle);
+                // Adding a figure to the gallery sect°
+                const figureDiv = document.createElement("figure")
 
 
-    }
+                const workTitle = document.createElement("h3");
+                workTitle.innerText = work.title;
+                const workImage = document.createElement("img");
+                workImage.src = work.imageUrl;
+
+                sectionGallery.appendChild(figureDiv)
+                figureDiv.appendChild(workImage);
+                figureDiv.appendChild(workTitle);
+
+
+            }
+        }
+        )
 }
 
 
 export async function generateModalWork(worksElements) {
+
+    fetch('http://localhost:5678/api/works')
+	.then(response => response.json())
+	.then(worksElements => {
+		console.log(worksElements)
+
     for (let i = 0; i < worksElements.length; i++) {
         const work = worksElements[i];
 
@@ -54,7 +68,7 @@ export async function generateModalWork(worksElements) {
         modalFigure.appendChild(modalImage);
         modalFigure.appendChild(modalFigCaption);
     }
-
+})
 
 
 }
@@ -84,9 +98,14 @@ export function sendWork() {
         //     body: bodyJson
         // });
 
-        
+
 
     });
 
 }
 
+export function updateGallery() {
+    fetch('http://localhost:5678/api/works')
+	.then(response => response.json())
+	.then(worksElements => generateWork(worksElements)
+    )}
