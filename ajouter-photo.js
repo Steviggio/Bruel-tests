@@ -22,14 +22,30 @@ input.addEventListener('change', () => {
     reader.readAsDataURL(file);
     modalElement.style.display = "none"
     modalLabel.style.display = "none"
-  }
+  } 
 })
+
 
 let form = document.getElementById('modal-add-form');
 let title = document.getElementById('title');
 let category = document.getElementById('category');
 let validateBtn = document.getElementById('modal-box-validate')
 
+
+function validateForm() {
+  const title = document.getElementById('title').value;
+  const category = document.getElementById('category').value;
+
+  if (title.trim() === '' || category.trim() === '') {
+    alert('Tous les champs sont nécessaires');
+    return false;
+  }
+
+  // Le formulaire est valide, on peut le soumettre
+  return true;
+}
+
+validateBtn.addEventListener("click", validateForm)
 
 function checkInputs() {
   // Vérifier si les champs sont remplis 
