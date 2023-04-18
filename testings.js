@@ -68,7 +68,7 @@ function modalWork() {
 									// item.parentNode.removeChild(item);
 									document.querySelector('.modal-gallery').innerHTML = '';
 									document.querySelector('.gallery').innerHTML = '',
-										modalWork()
+										modalWork(),
 									init()
 
 
