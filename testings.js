@@ -69,7 +69,7 @@ function modalWork() {
 									document.querySelector('.modal-gallery').innerHTML = '';
 									document.querySelector('.gallery').innerHTML = '',
 										modalWork(),
-									init()
+										init()
 
 
 								} else {
@@ -163,7 +163,6 @@ function init() {
 		const modalModify = document.querySelectorAll('.modal-modify-btn');
 		modalModify.forEach(div =>
 			div.style.display = 'block')
-
 
 	}
 }

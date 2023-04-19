@@ -1,12 +1,3 @@
-// File created to make tests concerning login routes | possibilities
-
-// const user = {
-//     "email": "sophie.bluel@test.tld",
-//     "password": "S0phie"
-// }
-
-// const chargeUtile = JSON.stringify(user)
-
 const btnConnect = document.querySelector("#btn-connect");
 
 btnConnect.addEventListener("click", async function (event) {
